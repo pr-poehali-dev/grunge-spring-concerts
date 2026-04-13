@@ -4,89 +4,35 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 60 10% 5%;
+    --foreground: 48 30% 82%;
+    --card: 60 8% 8%;
+    --card-foreground: 48 30% 82%;
+    --popover: 60 8% 8%;
+    --popover-foreground: 48 30% 82%;
+    --primary: 18 70% 32%;
+    --primary-foreground: 48 30% 90%;
+    --secondary: 60 5% 15%;
+    --secondary-foreground: 48 25% 70%;
+    --muted: 60 5% 12%;
+    --muted-foreground: 48 15% 55%;
+    --accent: 42 58% 49%;
+    --accent-foreground: 60 10% 5%;
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 48 30% 90%;
+    --border: 60 5% 18%;
+    --input: 60 5% 18%;
+    --ring: 18 70% 32%;
+    --radius: 0px;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 60 10% 5%;
+    --sidebar-foreground: 48 30% 82%;
+    --sidebar-primary: 18 70% 32%;
+    --sidebar-primary-foreground: 48 30% 90%;
+    --sidebar-accent: 60 5% 15%;
+    --sidebar-accent-foreground: 48 25% 70%;
+    --sidebar-border: 60 5% 18%;
+    --sidebar-ring: 18 70% 32%;
   }
 }
 
@@ -96,6 +42,125 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-grunge-black text-grunge-cream;
+    font-family: "Rubik", sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0a08;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #8b3a1a;
+  }
+}
+
+@layer utilities {
+  .text-stroke {
+    -webkit-text-stroke: 1px #8b3a1a;
+    color: transparent;
+  }
+
+  .grunge-btn {
+    @apply relative bg-grunge-rust text-grunge-cream font-oswald tracking-widest uppercase px-8 py-3 transition-all duration-200;
+    clip-path: polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
+  }
+
+  .grunge-btn:hover {
+    @apply bg-grunge-rust-light;
+    transform: skewX(-1deg);
+  }
+
+  .grunge-btn-outline {
+    @apply relative bg-transparent text-grunge-rust-light font-oswald tracking-widest uppercase px-8 py-3 transition-all duration-200;
+    border: 1px solid rgba(139, 58, 26, 0.6);
+    clip-path: polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
+  }
+
+  .grunge-btn-outline:hover {
+    @apply bg-grunge-rust text-grunge-cream;
+  }
+
+  .section-title {
+    @apply font-oswald text-5xl md:text-7xl uppercase tracking-wider text-grunge-cream;
+    text-shadow: 3px 3px 0px rgba(139, 58, 26, 0.5);
+  }
+
+  .nav-link {
+    @apply font-oswald tracking-widest uppercase text-grunge-cream-dark transition-colors duration-200 hover:text-grunge-cream relative;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #8b3a1a;
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .concert-card {
+    @apply bg-grunge-mud border border-grunge-ash transition-all duration-300 p-6 relative overflow-hidden;
+  }
+
+  .concert-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 0;
+    background: #8b3a1a;
+    transition: height 0.3s ease;
+  }
+
+  .concert-card:hover::before {
+    height: 100%;
+  }
+
+  .concert-card:hover {
+    border-color: rgba(139, 58, 26, 0.6);
+    background: #1f1f17;
+  }
+
+  .photo-card {
+    @apply relative overflow-hidden cursor-pointer;
+    filter: grayscale(50%) contrast(1.1);
+    transition:
+      filter 0.4s ease,
+      transform 0.3s ease;
+  }
+
+  .photo-card:hover {
+    filter: grayscale(0%) contrast(1.15);
+    transform: scale(1.02);
+    z-index: 10;
+  }
+
+  .noise-bg {
+    position: relative;
+  }
+
+  .noise-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    mix-blend-mode: overlay;
+    opacity: 0.15;
   }
 }
