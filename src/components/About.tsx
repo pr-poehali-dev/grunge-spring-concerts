@@ -1,6 +1,6 @@
 const members = [
   { name: 'Арсений', role: 'Вокал / Гитара', since: '—' },
-  { name: 'Анестетик', role: 'Гитара', since: '—' },
+  { name: 'Неизвестно', role: 'Гитара', since: '—' },
   { name: 'Неизвестно', role: 'Бас-гитара', since: '—' },
   { name: 'Даниил', role: 'Барабаны', since: '—' },
 ];
